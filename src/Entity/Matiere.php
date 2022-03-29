@@ -73,6 +73,19 @@ class Matiere
         return $this->profs;
     }
 
+    public function getProfsListe(){
+        $profStr = '';
+        $i=0;
+        foreach ($this->profs as $prof) {
+            $profStr.=$prof->getPrenom().' '. $prof->getNom();
+
+            if(++$i !== count($this->profs)) $profStr .= ', ';
+                
+        }
+
+        return $profStr;
+    }
+
     public function addProf(Prof $prof): self
     {
         if (!$this->profs->contains($prof)) {

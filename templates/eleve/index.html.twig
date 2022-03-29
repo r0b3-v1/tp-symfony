@@ -23,6 +23,7 @@
 						<td>{{eleve.nom}}</td>
 						<td>{{eleve.classe.nom}} (niveau {{eleve.classe.niveau}})</td>
 						<td>
+						<a class="btn btn-primary" href="{{path('app_eleve_details', {'id' : eleve.id})}}" ><i class="fa fa-eye" aria-hidden="true"></i> Voir</a>
 						<a class="btn btn-danger" href="{{path('app_eleve_supprimer', {'id' : eleve.id})}}" onclick="return confirm('Voulez vous vraiment supprimer cet élève?')"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</a>
 						</td>
 					</tr>

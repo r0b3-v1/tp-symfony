@@ -95,6 +95,19 @@ class Eleve
         return $this;
     }
 
+    public function getMatieres(){
+        $matiereStr = '';
+        $i=0;
+        foreach ($this->notes as $note) {
+            $matiereStr.=$note->getMatiere()->getNom() . ' enseignée par : '.$note->getMatiere()->getProfsListe() ;
+
+            if(++$i !== count($this->notes)) $matiereStr .= ', ';
+                
+        }
+
+        return $matiereStr;
+    }
+
     /**
      * @return Collection<int, Note>
      */
