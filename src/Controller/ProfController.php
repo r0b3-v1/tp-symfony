@@ -37,7 +37,7 @@ class ProfController extends AbstractController
 
         return $this->render('formulaires/ajout.html.twig',[
             'form'=>$form->createView(),
-            'titreajout'=>'un professeur'
+            'titreform'=>'Ajouter un professeur'
         ]);
     }
 

@@ -37,7 +37,7 @@ class ClasseController extends AbstractController
 
         return $this->render('formulaires/ajout.html.twig',[
             'form'=>$form->createView(),
-            'titreajout'=>'une classe'
+            'titreform'=>'Ajouter une classe'
         ]);
     }
 

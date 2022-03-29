@@ -30,7 +30,7 @@ class NoteController extends AbstractController
 
         return $this->render('formulaires/ajout.html.twig', [
             'form' => $form->createView(),
-            'titreajout' => 'une note pour '.$eleve->getPrenom().' '.$eleve->getNom()
+            'titreform'=>'Ajouter une note pour '.$eleve->getPrenom().' '.$eleve->getNom()
         ]);
     }
 }

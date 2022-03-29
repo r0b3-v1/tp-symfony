@@ -38,7 +38,7 @@ class EleveController extends AbstractController
 
         return $this->render('formulaires/ajout.html.twig',[
             'form'=>$form->createView(),
-            'titreajout'=>'un élève'
+            'titreform'=>'Ajouter un élève'
         ]);
     }
 
