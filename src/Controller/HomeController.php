@@ -17,4 +17,11 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+
+    /**
+     * @Route("/reglement", name="app_reglement_interieur")
+     */
+    public function reglementInterieur() :Response {
+        return $this->render('home/reglement.html.twig');
+    }
 }
