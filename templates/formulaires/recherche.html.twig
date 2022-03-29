@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="container mt-5">
+		<h3 class="mb-3">{{titreform}}</h3>
+		{{ form(form) }}
+
+			{% if resultats | length >0 %}
+            <h3>Résultats :</h3>
+				<table class="table mt-5">
+					<thead>
+						<tr>
+							<th>Prénom</th>
+							<th>Nom</th>
+							<th>Voir</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for eleve in resultats %}
+                        <tr>
+                        <td>{{eleve.prenom}}</td>
+                        <td>{{eleve.nom}}</td>
+                        <td><a class="btn btn-primary" href="{{path('app_eleve_details',{'id':eleve.id})}}">Voir</a></td>
+                        </tr>
+                        {% endfor %}
+					</tbody>
+				</table>
+			{% endif %}
+		</div>
+	{% endblock %}
