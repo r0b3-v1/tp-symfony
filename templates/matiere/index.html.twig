@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des matières
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5">
+		<h1>Liste des matières :
+		</h1>
+		<table class="table mt-5">
+			<thead>
+				<tr>
+					<th scope="col">Nom</th>
+					<th scope="col">Enseignée par</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				{% for matiere in matieres %}
+					<tr>
+						<td>{{matiere.nom}}</td>
+						<td>
+							{% for prof in matiere.profs %}
+								{{prof.prenom}}
+								{{prof.nom}} {% if not(loop.last) %},{% endif %}
+							{% endfor %}
+						</td>
+					</tr>
+				{% endfor %}
+
+			</tbody>
+		</table>
+
+	</div>
+
+
+{% endblock %}

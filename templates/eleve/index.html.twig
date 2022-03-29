@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ClasseController!
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5">
+    <h1>Liste des élèves : </h1>
+		<table class="table mt-5">
+			<thead>
+				<tr>
+					<th scope="col">Prenom</th>
+					<th scope="col">Nom</th>
+					<th scope="col">Classe</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				{% for eleve in eleves %}
+					<tr>
+						<td>{{eleve.prenom}}</td>
+						<td>{{eleve.nom}}</td>
+						<td>{{eleve.classe.nom}} (niveau {{eleve.classe.niveau}})</td>
+					</tr>
+				{% endfor %}
+
+			</tbody>
+		</table>
+
+	</div>
+
+
+{% endblock %}

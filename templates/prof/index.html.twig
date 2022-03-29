@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfController!{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Liste des professeurs : </h1>
+		<table class="table mt-5">
+			<thead>
+				<tr>
+					<th scope="col">Prénom</th>
+					<th scope="col">Nom</th>
+					<th scope="col">Matière enseignée</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				{% for prof in profs %}
+					<tr>
+						<td>{{prof.prenom}}</td>
+						<td>{{prof.nom}}</td>
+						<td>{{prof.matiere.nom}} </td>
+					</tr>
+				{% endfor %}
+
+			</tbody>
+		</table>
+
+	</div>
+{% endblock %}
