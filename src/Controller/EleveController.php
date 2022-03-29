@@ -79,20 +79,13 @@ class EleveController extends AbstractController
             $data = explode(' ', $form->getData()['keywords']);
             foreach ($data as $val) {
                 $val = '%'.$val.'%';
-                $resultNom = $er->createQueryBuilder('e')
-                            ->where('e.nom LIKE :val')
+                $result = $er->createQueryBuilder('e')
+                            ->where('e.nom LIKE :val OR e.prenom LIKE :val')
                             ->setParameter('val',$val)
                             ->getQuery()
                             ->execute()
                             ;
-                $resultPrenom = $er->createQueryBuilder('e')
-                            ->where('e.prenom LIKE :val')
-                            ->setParameter('val',$val)
-                            ->getQuery()
-                            ->execute()
-                            ;
-
-                $results = array_merge($results, $resultNom, $resultPrenom);
+                $results = array_merge($results, $result);
             }
             $results = array_unique($results);
         }
