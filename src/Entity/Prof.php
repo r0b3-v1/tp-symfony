@@ -6,6 +6,8 @@ use App\Repository\ProfRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=ProfRepository::class)
@@ -21,22 +23,26 @@ class Prof
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez renseigner le nom du professeur")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez renseigner le prénom du professeur")
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="date")
+     * 
      */
     private $date_de_naissance;
 
     /**
      * @ORM\ManyToOne(targetEntity=Matiere::class, inversedBy="profs")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank(message="Veuillez renseigner la matière enseignée par le professeur")
      */
     private $matiere;
 
@@ -44,6 +50,11 @@ class Prof
      * @ORM\OneToMany(targetEntity=Classe::class, mappedBy="prof")
      */
     private $classes;
+
+    public function __toString()
+    {
+        return $this->prenom . ' ' . $this->nom;
+    }
 
     public function __construct()
     {

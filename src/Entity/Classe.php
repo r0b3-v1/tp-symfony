@@ -6,6 +6,8 @@ use App\Repository\ClasseRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=ClasseRepository::class)
@@ -21,17 +23,21 @@ class Classe
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez renseigner le nom de la classe")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Veuillez renseigner le niveau de la classe")
+     * @Assert\Positive(message="Le niveau doit être un entier positif non nul")
      */
     private $niveau;
 
     /**
      * @ORM\ManyToOne(targetEntity=Prof::class, inversedBy="classes")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank(message="Veuillez renseigner un professeur pour la classe")
      */
     private $prof;
 

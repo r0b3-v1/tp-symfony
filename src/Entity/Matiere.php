@@ -6,6 +6,7 @@ use App\Repository\MatiereRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=MatiereRepository::class)
@@ -21,6 +22,7 @@ class Matiere
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez renseigner un nom")
      */
     private $nom;
 
@@ -33,6 +35,11 @@ class Matiere
      * @ORM\OneToMany(targetEntity=Note::class, mappedBy="matiere", orphanRemoval=true)
      */
     private $notes;
+
+    public function __toString()
+    {
+        return $this->nom;
+    }
 
     public function __construct()
     {
