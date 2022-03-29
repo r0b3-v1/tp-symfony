@@ -28,6 +28,7 @@ class Matiere
 
     /**
      * @ORM\OneToMany(targetEntity=Prof::class, mappedBy="matiere")
+     * @ORM\JoinColumn(onDelete="CASCADE") 
      */
     private $profs;
 

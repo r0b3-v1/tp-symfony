@@ -40,4 +40,13 @@ class ClasseController extends AbstractController
             'titreajout'=>'une classe'
         ]);
     }
+
+    /**
+     * @Route("/classe/{id}/supprimer", name="app_classe_supprimer")
+     */
+    public function supprimer($id, ClasseRepository $cr): Response{
+        $classe = $cr->find($id);
+        $cr->remove($classe);
+        return $this->redirectToRoute('app_classe');
+    }
 }

@@ -40,4 +40,13 @@ class ProfController extends AbstractController
             'titreajout'=>'un professeur'
         ]);
     }
+
+    /**
+     * @Route("/prof/{id}/supprimer", name="app_prof_supprimer")
+     */
+    public function supprimer($id, ProfRepository $pr): Response{
+        $prof = $pr->find($id);
+        $pr->remove($prof);
+        return $this->redirectToRoute('app_prof');
+    }
 }

@@ -12,6 +12,7 @@
 					<th scope="col">Prenom</th>
 					<th scope="col">Nom</th>
 					<th scope="col">Classe</th>
+					<th scope="col">Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -21,6 +22,9 @@
 						<td>{{eleve.prenom}}</td>
 						<td>{{eleve.nom}}</td>
 						<td>{{eleve.classe.nom}} (niveau {{eleve.classe.niveau}})</td>
+						<td>
+						<a class="btn btn-danger" href="{{path('app_eleve_supprimer', {'id' : eleve.id})}}" onclick="return confirm('Voulez vous vraiment supprimer cet élève?')"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</a>
+						</td>
 					</tr>
 				{% endfor %}
 

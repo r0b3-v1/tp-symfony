@@ -41,7 +41,7 @@ class Prof
 
     /**
      * @ORM\ManyToOne(targetEntity=Matiere::class, inversedBy="profs")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      * @Assert\NotBlank(message="Veuillez renseigner la matière enseignée par le professeur")
      */
     private $matiere;

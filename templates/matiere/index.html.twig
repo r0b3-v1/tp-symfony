@@ -12,6 +12,7 @@
 				<tr>
 					<th scope="col">Nom</th>
 					<th scope="col">Enseignée par</th>
+					<th scope="col">Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -24,6 +25,9 @@
 								{{prof.prenom}}
 								{{prof.nom}} {% if not(loop.last) %},{% endif %}
 							{% endfor %}
+						</td>
+						<td>
+						<a class="btn btn-danger" href="{{path('app_matiere_supprimer', {'id' : matiere.id})}}" onclick="return confirm('Voulez vous vraiment supprimer cette matière? Cela supprimera aussi les professeurs qui l\'enseignent')"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</a>
 						</td>
 					</tr>
 				{% endfor %}

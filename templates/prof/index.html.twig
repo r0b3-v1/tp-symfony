@@ -11,6 +11,7 @@
 					<th scope="col">Prénom</th>
 					<th scope="col">Nom</th>
 					<th scope="col">Matière enseignée</th>
+					<th scope="col">Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -20,6 +21,9 @@
 						<td>{{prof.prenom}}</td>
 						<td>{{prof.nom}}</td>
 						<td>{{prof.matiere.nom}} </td>
+						<td> 
+						<a class="btn btn-danger" href="{{path('app_prof_supprimer', {'id' : prof.id})}}" onclick="return confirm('Voulez vous vraiment supprimer ce professeur?')"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</a>
+						</td>
 					</tr>
 				{% endfor %}
 

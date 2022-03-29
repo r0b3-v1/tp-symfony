@@ -41,4 +41,13 @@ class EleveController extends AbstractController
             'titreajout'=>'un élève'
         ]);
     }
+
+    /**
+     * @Route("/eleve/{id}/supprimer", name="app_eleve_supprimer")
+     */
+    public function supprimer($id, EleveRepository $er): Response{
+        $eleve = $er->find($id);
+        $er->remove($eleve);
+        return $this->redirectToRoute('app_eleve');
+    }
 }

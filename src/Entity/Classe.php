@@ -43,6 +43,7 @@ class Classe
 
     /**
      * @ORM\OneToMany(targetEntity=Eleve::class, mappedBy="classe")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $eleves;
 

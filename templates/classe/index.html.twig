@@ -12,6 +12,7 @@
 					<th scope="col">Niveau</th>
 					<th scope="col">Nom</th>
 					<th scope="col">Professeur principal</th>
+					<th scope="col">Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -21,6 +22,9 @@
 						<th scope="row">{{classe.niveau}}</th>
 						<td>{{classe.nom}}</td>
 						<td>{{classe.prof.prenom}} {{classe.prof.nom}}</td>
+						<td>
+							<a class="btn btn-danger" href="{{path('app_classe_supprimer', {'id' : classe.id})}}" onclick="return confirm('Voulez vous vraiment supprimer cette classe? Cela supprimera aussi les élèves qui sont dedans')"><i class="fa fa-trash" aria-hidden="true"></i> Supprimer</a>
+						</td>
 					</tr>
 				{% endfor %}
 

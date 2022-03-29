@@ -45,7 +45,7 @@ class Eleve
 
     /**
      * @ORM\ManyToOne(targetEntity=Classe::class, inversedBy="eleves")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $classe;
 

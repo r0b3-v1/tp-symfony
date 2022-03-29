@@ -40,4 +40,13 @@ class MatiereController extends AbstractController
             'titreajout'=>'une matière'
         ]);
     }
+
+    /**
+     * @Route("/matiere/{id}/supprimer", name="app_matiere_supprimer")
+     */
+    public function supprimer($id, MatiereRepository $mr): Response{
+        $matiere = $mr->find($id);
+        $mr->remove($matiere);
+        return $this->redirectToRoute('app_matiere');
+    }
 }
