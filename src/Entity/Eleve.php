@@ -49,6 +49,11 @@ class Eleve
      */
     private $classe;
 
+    public function __toString()
+    {
+        return $this->prenom . ' ' . $this->nom;
+    }
+
     public function __construct()
     {
         $this->notes = new ArrayCollection();

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\NoteRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=NoteRepository::class)
@@ -19,11 +20,15 @@ class Note
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank(message="Veuillez donner une note")
+     * @Assert\PositiveOrZero(message="La note doit être supérieure ou égale à 0")
      */
     private $note;
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank(message="Veuillez donner un coefficient")
+     * @Assert\Positive(message="Le coefficient doit être supérieur à 0")
      */
     private $coefficient;
 
@@ -35,12 +40,14 @@ class Note
     /**
      * @ORM\ManyToOne(targetEntity=Matiere::class, inversedBy="notes")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank(message="Veuillez donner une matière")
      */
     private $matiere;
 
     /**
      * @ORM\ManyToOne(targetEntity=Eleve::class, inversedBy="notes")
      * @ORM\JoinColumn(nullable=false)
+     *
      */
     private $eleve;
 
