@@ -95,6 +95,19 @@ class Eleve
         return $this;
     }
 
+    public function getMoyenne(){
+
+        $sommeNotes = 0;
+        $sommeCoeff = 0 ;
+        foreach ($this->notes as $note) {
+            $sommeNotes += floatval($note->getNote()*$note->getCoefficient());
+            $sommeCoeff += floatval($note->getCoefficient());
+        }
+        if($sommeCoeff === 0)
+            return 'Aucune note pour le moment';
+        return $sommeNotes/$sommeCoeff;
+    }
+
     public function getMatieres(){
         $matiereStr = '';
         $i=0;
